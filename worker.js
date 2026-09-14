@@ -1,0 +1,2 @@
+const DATA='https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/data/market.json';
+export default {async fetch(req){const h={'Access-Control-Allow-Origin':'*','Cache-Control':'no-store'};if(req.method==='OPTIONS')return new Response('',{headers:h});try{const r=await fetch(DATA,{headers:{'User-Agent':'ShkarPoulBig/2'}});return new Response(await r.text(),{headers:{...h,'Content-Type':'application/json'}})}catch(e){return new Response(JSON.stringify({ok:false,error:e.message}),{status:503,headers:{...h,'Content-Type':'application/json'}})}}};
